@@ -19,9 +19,12 @@ alchemy_engine = sqlalchemy.create_engine(sqla_string)
 conn = psycopg2.connect(psycopg2_string)
 conn.autocommit = True
 sqla_conn = alchemy_engine.connect()
-sp500 = pd.read_csv("tickers/sp500_tickers.csv", na_filter=False)['tickers'].tolist()
-dow = pd.read_csv("tickers/dow_tickers.csv", na_filter=False)['tickers'].tolist()
-nasdaq = pd.read_csv("tickers/nasdaq_tickers.csv", na_filter=False)['tickers'].tolist()
+sp500 = pd.read_csv("tickers/sp500_tickers.csv",
+                    na_filter=False)['tickers'].tolist()
+dow = pd.read_csv("tickers/dow_tickers.csv",
+                  na_filter=False)['tickers'].tolist()
+nasdaq = pd.read_csv("tickers/nasdaq_tickers.csv",
+                     na_filter=False)['tickers'].tolist()
 
 
 class User:
@@ -74,7 +77,7 @@ class ActiveUser:
         self.user_database = pd.read_sql(
             'SELECT * FROM user_accounts', sqla_conn)
         if username in self.user_database['username'].unique() and bcrypt.checkpw(password.encode(),
-         self.user_database.loc[self.user_database['username'] == username].values[0][2].encode()):
+                                                                                  self.user_database.loc[self.user_database['username'] == username].values[0][2].encode()):
             print('Success')
             self.username = username
             self.password = password
@@ -137,17 +140,18 @@ class ActiveUser:
         self.balance_snapshot()
         print(f"${amount:,.2f} added to balance. Total Balance: ${self.balance:,.2f}")
         return True
-    
+
     def remove_money(self, amount: float):
         '''
         Removes the desired amount to a user's balance.
         '''
         if amount > self.balance:
-            return False        
+            return False
         self.balance -= amount
         self.balance_adjustment()
         self.balance_snapshot()
-        print(f"${amount:,.2f} removed from balance. Total Balance: ${self.balance:,.2f}")
+        print(
+            f"${amount:,.2f} removed from balance. Total Balance: ${self.balance:,.2f}")
         return True
 
     def delete_user(self):
@@ -165,7 +169,8 @@ class ActiveUser:
         Generates a recommended investment portfolio using Market functions
         '''
         if budget > self.balance:
-            raise ValueError('Budget must be less than or equal to user balance')
+            raise ValueError(
+                'Budget must be less than or equal to user balance')
         selected_index = Market(index)
         momentum_df = selected_index.momentum_investment_strategy(
             budget, num_shares, aggressive)
@@ -191,7 +196,7 @@ class ActiveUser:
             name.append(ticker)
             shares.append(amount)
             total_cost.append((stock.curr_price*amount))
-        return pd.DataFrame(data={'Name':name,'Amount':shares,'Total Cost':total_cost})
+        return pd.DataFrame(data={'Name': name, 'Amount': shares, 'Total Cost': total_cost})
 
     def balance_adjustment(self):
         '''
@@ -245,7 +250,6 @@ class ActiveUser:
             f"SELECT ticker, amount, cost_basis FROM holdings WHERE account_id = {self.id}", sqla_conn)
         return holdings_db
 
-
     def holdings_value(self):
         '''
         Calculates and returns current value of user's holdings
@@ -256,15 +260,16 @@ class ActiveUser:
         else:
             tickers = list(holdings.keys())
             holdings_value = 0
-            closelist = pdr.get_data_yahoo(tickers,period='1d',interval='1m')
+            closelist = pdr.get_data_yahoo(tickers, period='1d', interval='1m')
             closelist.dropna(inplace=True)
             if len(holdings) == 1:
                 holdings_amount = holdings[tickers[0]]
                 holdings_value += (closelist['Close'].iloc[-1]*holdings_amount)
-            else:    
+            else:
                 for ticker in holdings:
                     holdings_amount = holdings[ticker]
-                    holdings_value += (closelist['Close'].iloc[-1][ticker]*holdings_amount)
+                    holdings_value += (closelist['Close'].iloc[-1]
+                                       [ticker]*holdings_amount)
         return holdings_value
 
     def total_value(self):
@@ -281,7 +286,7 @@ class ActiveUser:
         FROM balance_history
         WHERE account_id = {self.id}''', sqla_conn)
         return balance_history_db
-    
+
     def transaction_history(self):
         transaction_history_db = pd.read_sql(f'''SELECT ticker, price, bought, amount, date, time, total FROM market_transactions
         WHERE account_id = {self.id}''', sqla_conn)

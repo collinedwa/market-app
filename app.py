@@ -307,6 +307,7 @@ def api_portfolio():
     holdings = curr_user.holdings()
     return jsonify(holdings)
 
+
 @app.route("/api/user/chart", methods=['GET'])
 def api_chart():
     if not session['logged_in']:
@@ -394,7 +395,6 @@ def api_analysis():
     session['budget'] = budget
     session['df_result'] = df_result.to_dict()
     return df_json
-    
 
 
 @app.route("/user/invest")
@@ -414,6 +414,8 @@ def invest():
     {final_table}
     <p><a href=../user><button class=grey style="height:50px;width:100px">Back</button></a></p>
     '''
+
+
 @app.route("/api/user/invest")
 def api_invest():
     if not session['logged_in']:
@@ -454,6 +456,7 @@ def transactions():
     {df}
     <p><a href=../user><button class=grey style="height:50px;width:100px">Back</button></a></p>
     '''
+
 
 @app.route("/api/user/transactions")
 def api_transactions():
@@ -591,7 +594,7 @@ def sell():
         cost = stock.curr_price * amount
         if stock.sell(curr_user, amount):
             return f'''<h1>Sold {amount} shares of {session['ticker']} for ${cost:,.2f}</h1>
-            <p><a href=../stocks<button class=grey style="height:50px;width:100px">Back</button></a></p>
+            <p><a href=../stocks><button class=grey style="height:50px;width:100px">Back</button></a></p>
             '''
         else:
             return '''<h1>Transaction Failed!</h1>

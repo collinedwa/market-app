@@ -115,8 +115,6 @@ Allows the user to sell any amount of held shares. The option will not be availa
 
 ![sell](screenshots/ma12.png)
 
-<div id='conclusions'/>
-
 ### "/user/stocks/data" Chart stock data:
 Outputs a chart detailing the stock's closing price alongside its 21-day moving average and 200-day moving average for the given timeframe.
 

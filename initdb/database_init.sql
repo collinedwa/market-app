@@ -56,3 +56,9 @@ CREATE TABLE balance_history(
         ON DELETE SET NULL
 );
 
+CREATE INDEX user_transactions_index ON market_transactions USING HASH (account_id);
+
+CREATE INDEX user_balance_index ON balance_history USING HASH (account_id);
+
+CREATE INDEX user_holdings_index ON holdings USING HASH (account_id);
+

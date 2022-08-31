@@ -1,0 +1,14 @@
+Flask==2.0.1
+matplotlib==3.5.2
+numpy==1.23.0
+pandas==1.4.3
+pandas_datareader==0.10.0
+psycopg2==2.9.3
+psycopg2_binary==2.9.1
+python_bcrypt==0.3.2
+scipy==1.8.1
+SQLAlchemy==1.4.17
+tqdm==4.64.0
+yfinance==0.1.74
+yoyo==0
+yoyo_migrations==7.3.2

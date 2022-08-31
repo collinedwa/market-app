@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+    pg:
+        container_name: ma_postgres
+        image: postgres:14.1-alpine3.15
+        restart: always
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_HOST_AUTH_METHOD: trust
+            PGUSER: postgres
+        ports:
+            - "5432:5432"
+        volumes:
+            - "${PWD}/initdb/:/docker-entrypoint-initdb.d/"
+networks:
+    default:
+        name: marketapp

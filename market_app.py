@@ -441,14 +441,18 @@ class Stock:
         timeframe = '1y', 'ytd', '6mo', '3mo', or '1mo'
         '''
         accepted_values = ['1y', 'ytd', '6mo', '3mo', '1mo']
+        long_ma = {'1y': 100, 'ytd': 50, '6mo': 50, '3mo': 30, '1mo': 14}
+        short_ma = {'1y': 17, 'ytd': 14, '6mo': 14, '3mo': 12, '1mo': 7}
         if timeframe not in accepted_values:
             raise ValueError(
                 f'Invalid timeframe! Expected one of {accepted_values}')
         df = pdr.get_data_yahoo(
             tickers=self.ticker, period=timeframe, interval='1d')
         matplt.figure(figsize=(10, 10))
-        matplt.plot(df['High'], 'g--', label='High')
-        matplt.plot(df['Low'], 'r--', label='Low')
+        sma = df['Close'].rolling(short_ma[timeframe]).mean()
+        lma = df['Close'].rolling(long_ma[timeframe]).mean()
+        matplt.plot(sma, 'g--', label='Short Moving Average')
+        matplt.plot(lma, 'y--', label='Long Moving Average')
         matplt.plot(df['Close'], label='Closing Price')
         matplt.xlabel('Date/Time')
         matplt.ylabel('$ Value')

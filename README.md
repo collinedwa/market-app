@@ -40,6 +40,7 @@ NOTE: User must be logged in to make any requests beyond the first 2 paths
 | /api/stocks/data | POST | ticker: string, timeframe: string (1M, 3M, 6M, 9M, 1Y) | Generates graph of stock performance for given timeframe |
 
 ## How to Use / Frontend Navigation
+NOTE: The frontend for this app is mainly meant to showcase the program's functionality.
 ### "/": 
 
 ## Design and Implementation:

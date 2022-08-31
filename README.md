@@ -2,7 +2,7 @@
 
 ## Introduction:
 
-This app is a combination paper trading/market analysis utility which scrapes data from Yahoo Finance to allow for pseudo-trading. It connects to a postgres database and logs user credentials, market transactions, balance changes, and holdings.
+This app is a combination paper trading/market analysis utility which scrapes data from Yahoo Finance to allow for pseudo-trading. It additionally connects to a postgres database and logs user credentials, market transactions, balance changes, and holdings.
 
 ## Requirements:
 

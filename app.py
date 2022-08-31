@@ -649,11 +649,11 @@ def data():
     <form method="POST">
                 <label>Select Timeframe:
                 <select name="timeframe">
-                <option value ="1y">1 Year</option>
-                <option value ="ytd">YTD</option>
-                <option value ="6mo">6 Months</option>
-                <option value ="3mo">3 Months</option>
-                <option value ="1mo">1 Month</option>
+                <option value ="1Y">1 Year</option>
+                <option value ="9M">9 Months</option>
+                <option value ="6M">6 Months</option>
+                <option value ="3M">3 Months</option>
+                <option value ="1M">1 Month</option>
                 </select> 
                 </label>  
     <input type="submit" value="Chart">

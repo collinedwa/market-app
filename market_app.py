@@ -438,22 +438,21 @@ class Stock:
         '''
         Uses matplotlib to chart out the stock's high, low, and closing prices from a given timeframe
 
-        timeframe = '1y', 'ytd', '6mo', '3mo', or '1mo'
+        timeframe = '1Y', '9M', '6M', '3M', or '1M'
         '''
-        accepted_values = ['1y', 'ytd', '6mo', '3mo', '1mo']
-        long_ma = {'1y': 100, 'ytd': 50, '6mo': 50, '3mo': 30, '1mo': 14}
-        short_ma = {'1y': 17, 'ytd': 14, '6mo': 14, '3mo': 12, '1mo': 7}
+        accepted_values = ['1Y', '9M', '6M', '3M', '1M']
         if timeframe not in accepted_values:
             raise ValueError(
                 f'Invalid timeframe! Expected one of {accepted_values}')
         df = pdr.get_data_yahoo(
-            tickers=self.ticker, period=timeframe, interval='1d')
+            tickers=self.ticker, period='2y', interval='1d')
         matplt.figure(figsize=(10, 10))
-        sma = df['Close'].rolling(short_ma[timeframe]).mean()
-        lma = df['Close'].rolling(long_ma[timeframe]).mean()
-        matplt.plot(sma, 'g--', label='Short Moving Average')
-        matplt.plot(lma, 'y--', label='Long Moving Average')
-        matplt.plot(df['Close'], label='Closing Price')
+        sma = df['Close'].rolling(21).mean().last(timeframe)
+        lma = df['Close'].rolling(200).mean().last(timeframe)
+        tf = df.last(timeframe)['Close']
+        matplt.plot(sma, 'g--', label='21 Day Moving Average')
+        matplt.plot(lma, 'y--', label='200 Day Moving Average')
+        matplt.plot(tf, label='Closing Price')
         matplt.xlabel('Date/Time')
         matplt.ylabel('$ Value')
         matplt.title(f"{self.ticker} Price")

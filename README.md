@@ -153,7 +153,7 @@ Takes session data generated from /user/analysis and purchases each stock relati
 
 ![investment results](screenshots/ma21.png)
 
-### "user/logout" Log out of the session:
+### "/user/logout" Log out of the session:
 Logs out of the interface and clears session data.
 
 <div id='conclusions'/>

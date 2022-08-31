@@ -307,6 +307,15 @@ def api_portfolio():
     holdings = curr_user.holdings()
     return jsonify(holdings)
 
+@app.route("/api/user/chart", methods=['GET'])
+def api_chart():
+    if not session['logged_in']:
+        return abort(401, description="Must be logged in to access")
+    curr_user = ma.ActiveUser(session['username'], session['password'])
+    curr_user.chart_portfolio()
+    data = {"image location": "/static/images/image.png"}
+    return jsonify(data)
+
 
 @app.route("/user/analysis", methods=['GET', 'POST'])
 def analysis():
@@ -360,20 +369,32 @@ def analysis():
            '''
 
 
-@app.route("/user/logout")
-def logout():
+@app.route("/api/user/analysis", methods=['POST'])
+def api_analysis():
     if not session['logged_in']:
         return abort(401, description="Must be logged in to access")
-    session['logged_in'] = False
-    return redirect('/')
-
-
-@app.route("/api/user/logout")
-def api_logout():
-    if not session['logged_in']:
-        return abort(401, description="Must be logged in to access")
-    session['logged_in'] = False
-    return jsonify(True)
+    curr_user = ma.ActiveUser(session['username'], session['password'])
+    if 'market' not in request.json or 'budget' not in request.json or 'results num' not in request.json:
+        return abort(400, "Fields left blank")
+    index_dict = {'sp500': ma.sp500, 'dow': ma.dow, 'nasdaq': ma.nasdaq}
+    index = index_dict[request.json['market']]
+    try:
+        budget = float(request.json['budget'])
+        num_results = int(request.json['results num'])
+    except:
+        return abort(400, "Budget must follow standard US dollar formatting. Results num must be a valid integer.")
+    if num_results < 1:
+        return abort(400, "Results num must be at least 1")
+    if budget > curr_user.balance:
+        return abort(400, "Budget must be less than or equal to user balance")
+    aggressive = True if request.json['aggressive'] else False
+    df_result = curr_user.generate_portfolio(
+        index, budget, num_results, aggressive)
+    df_json = df_result.to_json()
+    session['budget'] = budget
+    session['df_result'] = df_result.to_dict()
+    return df_json
+    
 
 
 @app.route("/user/invest")
@@ -393,6 +414,33 @@ def invest():
     {final_table}
     <p><a href=../user><button class=grey style="height:50px;width:100px">Back</button></a></p>
     '''
+@app.route("/api/user/invest")
+def api_invest():
+    if not session['logged_in']:
+        return abort(401, description="Must be logged in to access")
+    if 'budget' not in session or 'df_result' not in session:
+        return abort(400, "Must perform market analysis first")
+    curr_user = ma.ActiveUser(session['username'], session['password'])
+    df = ma.pd.DataFrame.from_dict(session['df_result'])
+    table = curr_user.invest_from_results(session['budget'], df)
+    final_table = table.to_json()
+    return final_table
+
+
+@app.route("/user/logout")
+def logout():
+    if not session['logged_in']:
+        return abort(401, description="Must be logged in to access")
+    session['logged_in'] = False
+    return redirect('/')
+
+
+@app.route("/api/user/logout")
+def api_logout():
+    if not session['logged_in']:
+        return abort(401, description="Must be logged in to access")
+    session['logged_in'] = False
+    return jsonify(True)
 
 
 @app.route("/user/transactions")
@@ -406,6 +454,15 @@ def transactions():
     {df}
     <p><a href=../user><button class=grey style="height:50px;width:100px">Back</button></a></p>
     '''
+
+@app.route("/api/user/transactions")
+def api_transactions():
+    if not session['logged_in']:
+        return abort(401, description="Must be logged in to access")
+    curr_user = ma.ActiveUser(session['username'], session['password'])
+    df = curr_user.transaction_history()
+    df = jsonify(None) if df.empty else df.to_json()
+    return df
 
 
 @app.route("/user/stocks", methods=['GET', 'POST'])

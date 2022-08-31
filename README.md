@@ -149,9 +149,12 @@ Provides input fields to customize analysis results. After submitting, a Market 
 ![analysis results](screenshots/ma19.png)
 
 ### "/user/invest" Invest from previous analysis:
-Takes session data and purchases each stock.
+Takes session data generated from /user/analysis and purchases each stock relative to its final weight in the table.
 
 ![investment results](screenshots/ma21.png)
+
+### "user/logout" Log out of the session:
+Logs out of the interface and clears session data.
 
 <div id='conclusions'/>
 

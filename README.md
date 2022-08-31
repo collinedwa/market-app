@@ -153,10 +153,6 @@ Takes session data and purchases each stock.
 
 ![investment results](screenshots/ma21.png)
 
-Console log of investing:
-
-![console log](screenshots/ma20.png)
-
 <div id='conclusions'/>
 
 ## Conclusions:

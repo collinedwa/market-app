@@ -23,7 +23,7 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 ## Requirements:
 
 * Docker
-* See requirements.txt for Python-specific requirements
+* See [requirements.txt](requirements.txt) for Python-specific requirements
 
 <div id='gettingstarted'/>
 

@@ -51,5 +51,11 @@ steps = [
         FOREIGN KEY (account_id)
         REFERENCES user_accounts (id)
         ON DELETE SET NULL
-    )""", "DROP TABLE balance_history")
+    )""", "DROP TABLE balance_history"),
+    step("""CREATE INDEX user_transactions_index ON market_transactions USING HASH (account_id);""",
+    """DROP INDEX user_transactions_index;"""),
+    step("""CREATE INDEX user_balance_index ON balance_history USING HASH (account_id);""",
+    """DROP INDEX user_balance_index;"""),
+    step("""CREATE INDEX user_holdings_index ON holdings USING HASH (account_id);""",
+    """DROP INDEX user_holdings_index;""")
 ]

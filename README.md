@@ -2,7 +2,7 @@
 
 ## Introduction:
 
-This app is a combination paper trading/market analysis utility which scrapes data from Yahoo Finance to allow for pseudo-trading. It additionally connects to a postgres database and logs user credentials, market transactions, balance changes, and holdings.
+This app is a combination paper trading/market analysis utility which scrapes data from Yahoo Finance to allow for pseudo-trading. It additionally connects to a postgres database and logs user credentials, market transactions, balance changes, and holdings. 
 
 ## Requirements:
 
@@ -17,6 +17,8 @@ This app is a combination paper trading/market analysis utility which scrapes da
 * In the same directory, execute 'flask run'. This will startup the Flask web framework and host the application on http://127.0.0.1:5000
 
 ## API Reference Table
+
+NOTE: User must be logged in to make any requests beyond the first 2 paths
 
 | Path      | Methods | Parameters     | Description | 
 | ---- | ---- | ---- | ---- |
@@ -37,6 +39,8 @@ This app is a combination paper trading/market analysis utility which scrapes da
 | /api/stocks/sell | POST | ticker: string, amount: integer | Sells desired amount of stock if currently held |
 | /api/stocks/data | POST | ticker: string, timeframe: string (1M, 3M, 6M, 9M, 1Y) | Generates graph of stock performance for given timeframe |
 
+## How to Use / Frontend Navigation
+### "/": 
 
 ## Design and Implementation:
 

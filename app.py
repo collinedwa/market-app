@@ -488,8 +488,10 @@ def stocks():
     holdings_html = ''
     for name in ma.nasdaq:
         html_string += f'<option value ="{name}">{name}</option>'
-    for name in curr_user.holdings():
-        holdings_html += f'<option value ="{name}">{name}</option>'
+    holdings = curr_user.holdings()
+    if holdings:
+        for name in curr_user.holdings():
+            holdings_html += f'<option value ="{name}">{name}</option>'
     session['ticker'] = None
     return f'''<h1>Stock Data</h1>
     <form method="POST">

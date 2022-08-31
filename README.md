@@ -35,7 +35,7 @@ This app is a combination paper trading/market analysis utility which scrapes da
 | /api/stocks | POST | ticker: string (Valid stock market ticker) | Retrieves current stock data | 
 | /api/stocks/buy | POST | ticker: string, amount: integer | Purchases desired amount of stock |
 | /api/stocks/sell | POST | ticker: string, amount: integer | Sells desired amount of stock if currently held |
-| /api/stocks/data | POST | ticker: string, timeframe: string (1mo, 3mo, 6mo, ytd, 1y) | Generates graph of stock performance for given timeframe |
+| /api/stocks/data | POST | ticker: string, timeframe: string (1M, 3M, 6M, 9M, 1Y) | Generates graph of stock performance for given timeframe |
 
 
 ## Design and Implementation:

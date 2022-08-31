@@ -85,7 +85,7 @@ Homepage which shows current balance and holdings value, with the option to add 
 ![user](screenshots/ma4.png)
 
 ### "/user/edit" Edit user information:
-Allows user to change credentials. Will log out the user if the username or password is changed.
+Allows user to change credentials or delete the account. Will log out the user if the username or password is changed.
 
 ![edit](screenshots/ma5.png)
 

@@ -109,12 +109,18 @@ Allows the user to buy any amount of shares-- user balance must be greater than 
 
 ![buy](screenshots/ma10.png)
 
+![bought](screenshots/buy.png)
+
 ### "/user/stocks/sell" Sell stocks:
 Allows the user to sell any amount of held shares. The option will not be available if no shares are held.
 
 ![sell unavailable](screenshots/ma11.png)
 
-![sell](screenshots/ma12.png)
+After buying:
+
+![sell option](screenshots/aacgsell.png)
+
+![sell](screenshots/sell.png)
 
 ### "/user/stocks/data" Chart stock data:
 Outputs a chart detailing the stock's closing price alongside its 21-day moving average and 200-day moving average for the given timeframe.

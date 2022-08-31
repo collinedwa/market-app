@@ -64,7 +64,7 @@ NOTE: User must be logged in to make any requests beyond the first 2 paths
 
 ## How to Use / Frontend Navigation:
 
-NOTE: The frontend for this app is mainly meant to showcase the program's functionality.
+NOTE: The frontend for this app is mainly meant to showcase the program's functionality, and is thus visually simple.
 ### "/" Homepage:
 Pretty straightforward-- Has options to log in and register.
 

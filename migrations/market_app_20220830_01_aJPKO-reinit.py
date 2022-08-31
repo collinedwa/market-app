@@ -7,6 +7,9 @@ from yoyo import step
 __depends__ = {}
 
 steps = [
+    step("""DROP DATABASE IF EXISTS market_app_database;
+            CREATE DATABASE market_app_database;""",
+            """DROP DATABASE IF EXISTS market_app_database;"""),
     step("""CREATE TABLE user_accounts(
     id SERIAL PRIMARY KEY,
     username TEXT UNIQUE NOT NULL,

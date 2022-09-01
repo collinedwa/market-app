@@ -159,6 +159,7 @@ Logs out of the interface and clears session data.
 ![homepage](screenshots/ma1.png)
 
 #### That's it! For any questions regarding the underlying code, please check out the documentation in [market_app.py](market_app.py).
+#### If you wish to reset the database for any reason, you can run [scripts/apply.py](scripts/apply.py)
 
 <div id='conclusions'/>
 

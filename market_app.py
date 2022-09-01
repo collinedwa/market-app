@@ -77,7 +77,7 @@ class ActiveUser:
         self.user_database = pd.read_sql(
             'SELECT * FROM user_accounts', sqla_conn)
         if username in self.user_database['username'].unique() and bcrypt.checkpw(password.encode(),
-                                                                                  self.user_database.loc[self.user_database['username'] == username].values[0][2].encode()):
+        self.user_database.loc[self.user_database['username'] == username].values[0][2].encode()):
             print('Success')
             self.username = username
             self.password = password
@@ -310,6 +310,22 @@ class ActiveUser:
         matplt.style.use("seaborn")
         matplt.legend()
         matplt.savefig('static/images/image.png')
+
+    def chart_holdings(self):
+        '''
+        Uses matplotlib to create a pie chart of the user's holdings
+        '''
+        holdings = self.holdings_df()
+        if holdings.empty:
+            return False
+        explode = np.zeros(len(holdings['ticker']))
+        explode[0] = 0.1
+        fig, ax = matplt.subplots()
+        ax.pie(holdings['amount'], explode=explode, labels=holdings['ticker'], shadow=True, startangle=90)
+        ax.axis('equal')
+        matplt.savefig('static/images/image.png')
+        return True
+        
 
 
 class Stock:

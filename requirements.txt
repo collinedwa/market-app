@@ -10,5 +10,4 @@ scipy==1.8.1
 SQLAlchemy==1.4.17
 tqdm==4.64.0
 yfinance==0.1.74
-yoyo==0
 yoyo_migrations==7.3.2

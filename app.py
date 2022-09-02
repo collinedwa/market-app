@@ -293,7 +293,7 @@ def portfolio():
     {holdings}
     <p>Holdings Value: ${curr_user.holdings_value():,.2f}
     <form method="POST">
-    <input type="submit" value="View Performance" style="height:50px;width:100px">
+    <input type="submit" value="View Graph" style="height:50px;width:100px">
     </form>
     <p><a href=../user><button class=grey style="height:50px;width:100px">Back</button></a></p>
     '''

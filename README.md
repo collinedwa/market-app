@@ -33,7 +33,8 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 * Open a CLI and navigate to the project's root folder (with docker-compose.yml)
 * Execute the command 'docker-compose up -d'. This will download and start the containers as well as initialize the database via [database_init.sql](initdb/database_init.sql)
 * Confirm that the container is running in Docker
-* Either navigate to or make API calls to http://127.0.0.1:5000
+* Navigate to http://127.0.0.1:5000 and see [How to Use / Frontend Navigation](#howtouse)
+* Alternatively make API calls to http://127.0.0.1:5000
 
 <div id='APIref'/>
 

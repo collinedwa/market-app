@@ -13,8 +13,8 @@ from tqdm import tqdm
 import bcrypt
 
 yf.pdr_override()
-sqla_string = 'postgresql+psycopg2://postgres:@localhost:5432/market_app_database'
-psycopg2_string = 'postgres://postgres:@localhost:5432/market_app_database'
+sqla_string = 'postgresql+psycopg2://postgres:@pg:5432/market_app_database'
+psycopg2_string = 'postgres://postgres:@pg:5432/market_app_database'
 alchemy_engine = sqlalchemy.create_engine(sqla_string)
 conn = psycopg2.connect(psycopg2_string)
 conn.autocommit = True

@@ -1,5 +1,13 @@
 version: "3.8"
 services:
+    marketapp:
+        container_name: ma_app
+        build: .
+        image: collinedwards/marketapp:latest
+        ports:
+            - "5000:5000"
+        depends_on:
+            - pg
     pg:
         container_name: ma_postgres
         image: postgres:14.1-alpine3.15

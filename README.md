@@ -32,7 +32,7 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 
 * Ensure requirements are met, and that any preexisting postgres containers are disabled.
 * Open a CLI and navigate to the project's root folder (with docker-compose.yml)
-* Execute the command 'docker-compose up -d'. This will download and start the containers as well as initialize the database via [database_init.sql](initdb/database_init.sql)
+* Execute the command 'docker-compose up -d'. This will download and start the containers as well as initialize the database via [database_init.sql](initdb/database_init.sql). This step may take some time depending on your connection speed.
 * Confirm that the container is running in Docker
 * Navigate to http://127.0.0.1:5000 and see [How to Use / Frontend Navigation](#howtouse)
 * Alternatively make API calls to http://127.0.0.1:5000

@@ -28,7 +28,7 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 <div id='gettingstarted'/>
 
 ## Getting started:
-### Local Instance:
+### Local instance:
 
 * Ensure requirements are met, and that any preexisting postgres containers are disabled.
 * Open a CLI and navigate to the project's root folder (with docker-compose.yml)

@@ -31,6 +31,7 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 ### Azure Page:
 
 * Navigate to https://ptma.azurewebsites.net/ and see [How to Use / Frontend Navigation](#howtouse)
+* Alternatively, you can make API calls to https://ptma.azurewebsites.net/
 
 ### Local instance:
 
@@ -39,7 +40,7 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 * Execute the command 'docker-compose up -d'. This will download and start the containers as well as initialize the database via [database_init.sql](initdb/database_init.sql). This step may take some time depending on your connection speed.
 * Confirm that the container is running in Docker
 * Navigate to http://127.0.0.1:5000 and see [How to Use / Frontend Navigation](#howtouse)
-* Alternatively make API calls to http://127.0.0.1:5000
+* Alternatively, you can make API calls to http://127.0.0.1:5000
 
 <div id='APIref'/>
 

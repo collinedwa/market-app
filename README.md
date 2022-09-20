@@ -28,6 +28,10 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 <div id='gettingstarted'/>
 
 ## Getting started:
+### Azure Page:
+
+* Navigate to https://ptma.azurewebsites.net/ and see [How to Use / Frontend Navigation](#howtouse)
+
 ### Local instance:
 
 * Ensure requirements are met, and that any preexisting postgres containers are disabled.
@@ -66,7 +70,8 @@ NOTE: User must be logged in to make any requests beyond the first 2 paths
 
 ## How to Use / Frontend Navigation:
 
-NOTE: The frontend for this app is mainly meant to showcase the program's functionality, and is thus visually simple.
+NOTE: The frontend for this app is mainly meant to showcase the program's functionality, and is thus visually simple. Certain functions may take a while to load depending on the parameters (i.e. portfolio generation); the web page will remain in a loading state until the application has finished retrieving the necessary information.
+
 ### "/" Homepage:
 Pretty straightforward-- Has options to log in and register.
 

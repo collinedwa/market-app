@@ -70,7 +70,7 @@ NOTE: User must be logged in to make any requests beyond the first 2 paths
 
 ## How to Use / Frontend Navigation:
 
-NOTE: The frontend for this app is mainly meant to showcase the program's functionality, and is thus visually simple. Certain functions may take a while to load depending on the parameters (i.e. portfolio generation and subsequent investing); the web page will remain in a loading state until the application has finished retrieving the necessary information.
+NOTE: The frontend for this app is mainly meant to showcase the program's functionality, and is thus visually simple. Certain functions may take a while to load depending on the parameters (i.e. portfolio generation and subsequent investing); this is particularly evident on older machines as well as the Azure instance, as it is currently hosted using the free plan.
 
 ### "/" Homepage:
 Pretty straightforward-- Has options to log in and register.

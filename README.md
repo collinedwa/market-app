@@ -28,7 +28,7 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 <div id='gettingstarted'/>
 
 ## Getting started:
-### Azure Page:
+### Azure page:
 
 * Navigate to https://ptma.azurewebsites.net/ and see [How to Use / Frontend Navigation](#howtouse)
 * Alternatively, you can make API calls to https://ptma.azurewebsites.net/

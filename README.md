@@ -33,6 +33,8 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 * Navigate to https://ptma.azurewebsites.net/ and see [How to Use / Frontend Navigation](#howtouse)
 * Alternatively, you can make API calls to https://ptma.azurewebsites.net/
 
+To maintain the longevity of the free service plan, the database will be up during approximate normal business hours Mon-Fri.
+
 ### Local instance:
 
 * Ensure requirements are met, and that any preexisting postgres containers are disabled.

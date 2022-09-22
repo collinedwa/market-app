@@ -31,7 +31,8 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 ### Azure page:
 
 * Navigate to https://ptma.azurewebsites.net/ and see [How to Use / Frontend Navigation](#howtouse)
-* Alternatively, you can make API calls to https://ptma.azurewebsites.net/
+* Alternatively, you can make API calls to https://ptma.azurewebsites.net
+* The app may take some time to warm up if it has been in an idle state for a while.
 
 To maintain the longevity of the free service plan, the database will be up during approximate normal business hours Mon-Fri.
 

@@ -16,7 +16,6 @@ services:
     marketapp:
         container_name: ma_app
         build: .
-        image: collinedwards/marketapp:latest
         ports:
             - "5000:5000"
         depends_on:

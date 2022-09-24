@@ -34,7 +34,7 @@ Frontend and backend API using the Flask framework is written in [app.py](app.py
 * Alternatively, you can make API calls to https://ptma.azurewebsites.net
 * The app may take some time to warm up if it has been in an idle state for a while.
 
-To maintain the longevity of the free service plan, the database will be up during approximate normal business hours Mon-Fri.
+To maximize the longevity of the free service plan, the database will be up during approximate normal business hours Mon-Fri.
 
 ### Local instance:
 

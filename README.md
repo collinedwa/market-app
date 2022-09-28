@@ -18,6 +18,8 @@ Main functionality for the app is written and documented in [market_app.py](mark
 
 Frontend and backend API using the Flask framework is written in [app.py](app.py)
 
+Automated tests using pytest are located in [tests](tests)
+
 <div id='requirements'/>
 
 ## Requirements:

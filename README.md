@@ -36,7 +36,6 @@ Automated tests using pytest are located in [tests](tests)
 * Alternatively, you can make API calls to https://ptma.azurewebsites.net
 * The app may take some time to warm up if it has been in an idle state for a while.
 
-To maximize the longevity of the free service plan, the database will be up during approximate normal business hours Mon-Fri.
 
 ### Local instance:
 

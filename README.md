@@ -12,7 +12,7 @@
 
 ## Introduction:
 
-This app is a combination paper trading/market analysis utility which scrapes data from Yahoo Finance to allow for pseudo-trading. It additionally connects to a postgres database and logs user credentials, market transactions, balance changes, and holdings.
+This app is a combination paper trading/market analysis utility which scrapes data from Yahoo Finance to allow for pseudo-trading. It additionally connects to a postgres database that logs user credentials, market transactions, balance changes, and holdings.
 
 Main functionality for the app is written and documented in [market_app.py](market_app.py)
 
